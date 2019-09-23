@@ -1,9 +1,18 @@
-def get_input_base10()
+def get_input_destination_base()
     """
-    :return: 
+    Acquire input from the user.
+    :return: destination base as an int
     """
+    input_destination_base = int(input("Enter your destination base between 2 to 9:\n"))
+    return input_destination_base
 
 
+def get_input_base_10(maximum_base_10):
+    """
+    Acquire input from the user.
+    :return:
+    """
+    base_10 = int(input(f"Enter a Base 10 number less than or equal to {maximum_base_10}:\n"))
 
 
 def convert(user_input, user_destination):
@@ -11,7 +20,8 @@ def convert(user_input, user_destination):
     Convert a base 10 number into base n.
     :param user_input: int
     :param user_destination: int
-    :return:
+    :postcondition: convert input to destination base.
+    :return: a converted integer
     """
     right_most = str(user_input % user_destination)
     base_10 = int(user_input / user_destination)
@@ -55,15 +65,15 @@ def format_conversion(Base_10,desired_base,conversion):
 def base_conversion():
     """
     Convert a base 10 number to base n.
-    :postcondition: convert input to destination base.
+
+    The main function that will invoke all required functions to perform the conversion.
     :return: base-n number
     """
 
-    desired_base = int(input("Enter your destination base between 2 to 9:\n"))
+    desired_base = get_input_destination_base()
     maximum_base_10 = 2 ** desired_base - 1
-    maximum_base_10 = str(maximum_base_10)
-    user_input = int(input(f"Enter a Base 10 number less than or equal to {maximum_base_10}:\n"))
-    convert()
+    user_input = get_input_base_10(maximum_base_10)
+    convert(user_input,desired_base)
     format_conversion(user_input,desired_base)
 
 
