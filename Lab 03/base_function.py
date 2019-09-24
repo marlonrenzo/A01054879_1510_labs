@@ -2,7 +2,7 @@ def get_input_destination_base():
     """
     Acquire the destination base from the user.
 
-    :return: destination base as an int
+    :return: destination base as an int between 2 and 9
     """
     input_destination_base = int(input("Enter your destination base between 2 to 9:\n"))
     return input_destination_base
@@ -11,8 +11,8 @@ def get_input_destination_base():
 def get_input_base_10(desired_base):
     """
     Acquire the base 10 number to convert from the user.
-
-    :return:
+    :param: destination base as an int between 2 and 9
+    :return: the input from user as postive int less than maximum_base_10
     """
     maximum_base_10 = get_maximum_base(desired_base)
     base_10 = int(input(f"Enter a Base 10 number less than or equal to {maximum_base_10}:\n"))
@@ -49,21 +49,26 @@ def convert(user_input, user_destination):
 
 
 def get_digit(dividend, divisor, number_of_digits_from_right):
+    """
+    Calculate the digit by finding the remainder between the dividend and the divisor.
 
+    :param dividend: base 10 number as a postive int less than maximum_base_10
+    :param divisor: destination base as a postive int between 2 and 9
+    :param number_of_digits_from_right: character place from right as an int
+    :return: the digit as an int
+    """
     digit = int(dividend / (divisor ** number_of_digits_from_right) % divisor)
 
     return digit
-
-
 
 
 def format_conversion(base_10,desired_base,conversion):
     """
     Print a string showing the determined conversion.
 
-    :param Base_10: int
-    :param desired_base: int
-    :param conversion: string
+    :param base_10: base 10 number as a postive int less than maximum_base_10
+    :param desired_base: destination base as a postive int between 2 and 9
+    :param conversion: the final converted base n int
     :return: a string containing the data collected.
     """
     conversion_phrase = (f"{base_10} base 10 converted to base {desired_base} is: {conversion}")
