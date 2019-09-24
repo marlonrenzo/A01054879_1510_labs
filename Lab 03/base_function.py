@@ -78,7 +78,9 @@ def format_conversion(base_10,desired_base,conversion):
 
 def base_conversion():
     """
-    Convert a base 10 number to base n
+    Convert a base 10 number to base n.
+
+    Act as the main and call all required functions to complete the conversion.
 
     :postcondition: convert input to destination base.
     :return: base-n number
