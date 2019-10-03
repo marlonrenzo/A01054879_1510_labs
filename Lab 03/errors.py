@@ -6,7 +6,7 @@ def main():
 
     ZeroDivisionError = 5 / 0
     print(ZeroDivisionError)
-    
+
     index_error_one = "123456789"
     print(index_error_one[-10])
 

@@ -6,4 +6,4 @@ class TestReplace_5_or_10(TestCase):
         actual_value = replace_5_or_10(10, "M")
         expected_value = "MMMMMMMMMM"
         self.assertEqual(actual_value, expected_value)
-        
+

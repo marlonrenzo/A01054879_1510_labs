@@ -31,7 +31,6 @@ def roll_die(number_of_rolls,number_of_sides):
         return sum
 
 
-
 def create_name(length):
     """
     Generate a random string with a length depending on the parameter.

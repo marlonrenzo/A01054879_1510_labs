@@ -6,4 +6,4 @@ class TestFind_thousands(TestCase):
         actual_value = find_thousands(8796)
         expected_value = 8
         self.assertEqual(actual_value, expected_value)
-        
+
