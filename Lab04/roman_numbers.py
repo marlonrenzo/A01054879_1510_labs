@@ -61,35 +61,38 @@ def convert_to_roman_numeral(user_input):
     >>> convert_to_roman_numeral(9999)
     'MMMMMMMMMCMXCIX'
     """
-    thousands = find_thousands(user_input)
-    thousands_letters = get_letters(thousands, "M")
-    remainder = find_remainder(user_input, thousands, 1000)
+    if user_input > 10000:
+        return None
+    else:
+        thousands = find_thousands(user_input)
+        thousands_letters = get_letters(thousands, "M")
+        remainder = find_remainder(user_input, thousands, 1000)
 
-    five_hundreds = find_five_hundreds(remainder)
-    five_hundreds_letters = get_letters(five_hundreds, "D")
-    remainder_five_hundreds = find_remainder(remainder, five_hundreds, 500)
+        five_hundreds = find_five_hundreds(remainder)
+        five_hundreds_letters = get_letters(five_hundreds, "D")
+        remainder_five_hundreds = find_remainder(remainder, five_hundreds, 500)
 
-    hundreds = find_hundreds(remainder_five_hundreds)
-    hundreds_letters = get_letters(hundreds, "C")
-    remainder_hundreds = find_remainder(remainder_five_hundreds, hundreds, 100)
+        hundreds = find_hundreds(remainder_five_hundreds)
+        hundreds_letters = get_letters(hundreds, "C")
+        remainder_hundreds = find_remainder(remainder_five_hundreds, hundreds, 100)
 
-    fifties = find_fifties(remainder_hundreds)
-    fifties_letters = get_letters(fifties, "L")
-    remainder_fifties = find_remainder(remainder_hundreds, fifties, 50)
+        fifties = find_fifties(remainder_hundreds)
+        fifties_letters = get_letters(fifties, "L")
+        remainder_fifties = find_remainder(remainder_hundreds, fifties, 50)
 
-    tens = find_tens(remainder_fifties)
-    tens_letters = get_letters(tens, "X")
-    remainder_tens = find_remainder(remainder_fifties, tens, 10)
+        tens = find_tens(remainder_fifties)
+        tens_letters = get_letters(tens, "X")
+        remainder_tens = find_remainder(remainder_fifties, tens, 10)
 
-    fives = find_fives(remainder_tens)
-    fives_letters = get_letters(fives, "V")
-    remainder_fives = find_remainder(remainder_tens, fives, 5)
+        fives = find_fives(remainder_tens)
+        fives_letters = get_letters(fives, "V")
+        remainder_fives = find_remainder(remainder_tens, fives, 5)
 
-    ones = find_ones(remainder_fives)
-    ones_letters = get_letters(ones, "I")
+        ones = find_ones(remainder_fives)
+        ones_letters = get_letters(ones, "I")
 
-    roman_numeral = final_conversion(thousands_letters, five_hundreds_letters, hundreds_letters, fifties_letters, tens_letters, fives_letters, ones_letters)
-    return roman_numeral
+        roman_numeral = final_conversion(thousands_letters, five_hundreds_letters, hundreds_letters, fifties_letters, tens_letters, fives_letters, ones_letters)
+        return roman_numeral
 
 
 
