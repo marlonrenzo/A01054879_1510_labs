@@ -50,7 +50,7 @@ def convert_to_roman_numeral(user_input):
     """
     Call all necessary fucntions to correctly represent an integer as a roman numeral.
 
-    :precondition: must be a positive integer
+    :precondition: must be a positive integers
     :precondition: must be in the range [1, 10_000]
     :param user_input: The integer to be converted
     :return: The corresponding roman numeral as a string
