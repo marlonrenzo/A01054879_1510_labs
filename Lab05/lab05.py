@@ -1,6 +1,7 @@
 import random
 import doctest
 
+
 def roll_die(number_of_rolls, number_of_sides):
     """
     Will return a random positive integer base on the parameters.
@@ -9,8 +10,11 @@ def roll_die(number_of_rolls, number_of_sides):
     :param number_of_sides: an integer determining the upper bound of one roll
     :return: a random integer containing the sum of all rolls performed
     """
-    roll = random.randint(number_of_rolls, number_of_sides * number_of_rolls)
-    return roll
+    total = 0
+    for x in range(0, number_of_rolls):
+        roll = random.randint(1, number_of_sides)
+        total = total + roll
+    return total
 
 
 def choose_inventory(inventory, selection):
@@ -35,7 +39,7 @@ def choose_inventory(inventory, selection):
     ['first', 'second', 'third']
     """
     if inventory == [] and selection == 0:
-        return 0
+        return []
     elif selection < 0:
         print("Warning: Your selection of items for inventory items is a negative number.")
         return []
@@ -49,7 +53,6 @@ def choose_inventory(inventory, selection):
         return random_selection
 
 
-
 def generate_name(syllables):
     """
     Return
@@ -58,13 +61,42 @@ def generate_name(syllables):
     :param syllables: an integer
     :return:
     """
-    pass
+    string = ""
+    for x in range(0, syllables):
+        string = string + generate_syllable()
+    return string.capitalize()
+
 
 def generate_vowel():
     """
-
-    :return:
+    Generate a random vowel.
+    :return: a random vowel character
     """
+    vowel = ['a', 'e', 'i', 'o', 'u', 'y']
+    random_selection = random.choice(vowel)
+    return random_selection
+
+
+def generate_consonant():
+    """
+    Generate a random consonant.
+    :return: a random consonant character
+    """
+    consonant = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'z']
+    random_selection = random.choice(consonant)
+    return random_selection
+
+
+def generate_syllable():
+    """
+    Generate a random syllable.
+    :return: a random syllable as a concatenated string
+    """
+    vowel = generate_vowel()
+    consonant = generate_consonant()
+    syllable = vowel + consonant
+    return syllable
+
 
 
 def create_character(name_length):
@@ -73,7 +105,11 @@ def create_character(name_length):
     :param name_length: an integer
     :return:
     """
-    pass
+    character = [generate_name(name_length // 2), ['Strength', roll_die(3, 6)],
+                 ['Dexterity', roll_die(3, 6)],['Constitution', roll_die(3, 6)],
+                 ['Intelligence', roll_die(3, 6)], ['Wisdom', roll_die(3, 6)],
+                 ['Charisma', roll_die(3, 6)]]
+    return character
 
 
 def print_character(character):
@@ -82,7 +118,19 @@ def print_character(character):
     :param character: a list
     :return:
     """
-    pass
+    print(f"Name: {character[0]}")
+    attribute_one = character.pop(1)
+    print(f"{attribute_one[0]}: {attribute_one[1]}")
+    attribute_two = character.pop(1)
+    print(f"{attribute_two[0]}: {attribute_two[1]}")
+    attribute_three = character.pop(1)
+    print(f"{attribute_three[0]}: {attribute_three[1]}")
+    attribute_four = character.pop(1)
+    print(f"{attribute_four[0]}: {attribute_four[1]}")
+    attribute_five = character.pop(1)
+    print(f"{attribute_five[0]}: {attribute_five[1]}")
+    attribute_six = character.pop(1)
+    print(f"{attribute_six[0]}: {attribute_six[1]}")
 
 
 def main():
@@ -90,9 +138,15 @@ def main():
 
     :return:
     """
-    inventory = ['Longsword','Dagger','Bow','Staff','Wand','Shield','Spear','Axe','Hammer']
-    print(choose_inventory(inventory,2))
-    doctest.testmod()
+    # inventory = ['Longsword', 'Dagger', 'Bow', 'Staff', 'Wand', 'Shield', 'Spear', 'Axe', 'Hammer']
+    # print(choose_inventory(inventory,2))
+    # print(generate_vowel())
+    # doctest.testmod()
+    # print(generate_name(4))
+    # print(roll_die(3,6))
+    print(create_character(8))
+    print_character(create_character(8))
+
 
 if __name__ == '__main__':
     main()
