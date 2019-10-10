@@ -1,11 +1,19 @@
 from unittest import TestCase
 from Lab05.lab05 import generate_syllable
-from unittest.mock import patch
 
 
 class TestGenerateSyllable(TestCase):
-    @patch("random.choice", return_value="op")
-    def test_generate_syllable(self, mock_output):
-        expected_value = "op"
-        actual_value = generate_syllable()
+    def test_generate_syllable_length(self):
+        expected_value = 2
+        actual_value = len(generate_syllable())
         self.assertEqual(actual_value, expected_value)
+
+    def test_generate_syllable_consonant(self):
+        consonant = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'z']
+        actual_value = generate_syllable()
+        self.assertTrue(actual_value[0] in consonant)
+
+    def test_generate_syllable_vowel(self):
+        vowel = ['a', 'e', 'i', 'o', 'u', 'y']
+        actual_value = generate_syllable()
+        self.assertTrue(actual_value[1] in vowel)
