@@ -1,4 +1,5 @@
 import random
+import doctest
 
 
 def roll_die(number_of_rolls, number_of_sides):
@@ -34,7 +35,7 @@ def choose_inventory(inventory, selection):
     :param selection: an integer for the number of selections from the list
     :return: a sorted list
     >>> choose_inventory([],0)
-    0
+    []
     >>> choose_inventory(['One'],-1)
     Warning: Your selection of items for inventory items is a negative number.
     []
@@ -129,6 +130,22 @@ def print_character(character):
     :post condition: will print all the attributes in a legible way
     :param character: a list with all character attributes
     :return: formatted string with all character attributes
+    >>> print_character(['Hi', ['one', 12], ['two', 9], ['three', 10], ['four', 12], ['five', 13], ['six', 13]])
+    Name: Hi
+    one: 12
+    two: 9
+    three: 10
+    four: 12
+    five: 13
+    six: 13
+    >>> print_character(['.', ['one', -49], ['two', 0], ['three', 5000], ['four', 1], ['five', 17], ['six', 'seven']])
+    Name: .
+    one: -49
+    two: 0
+    three: 5000
+    four: 1
+    five: 17
+    six: seven
     """
     print(f"Name: {character[0]}")
     print(f"{character[1][0]}: {character[1][1]}")
@@ -139,3 +156,4 @@ def print_character(character):
     print(f"{character[6][0]}: {character[6][1]}")
 
 
+doctest.testmod()
