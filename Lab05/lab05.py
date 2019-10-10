@@ -1,7 +1,6 @@
 import random
 
 
-
 def roll_die(number_of_rolls, number_of_sides):
     """
     Will return a random positive integer base on the parameters.
@@ -122,23 +121,16 @@ def create_character(name_length):
 def print_character(character):
     """
     Format character's attributes in a neat and legible way.
-
-    Pop each element one after the other, and print the attribute name along with value.
+    
     :precondition: the character list must be properly formatted
     :post condition: will print all the attributes in a legible way
     :param character: a list with all character attributes
     :return: formatted string with all character attributes
     """
     print(f"Name: {character[0]}")
-    attribute_one = character.pop(1)
-    print(f"{attribute_one[0]}: {attribute_one[1]}")
-    attribute_two = character.pop(1)
-    print(f"{attribute_two[0]}: {attribute_two[1]}")
-    attribute_three = character.pop(1)
-    print(f"{attribute_three[0]}: {attribute_three[1]}")
-    attribute_four = character.pop(1)
-    print(f"{attribute_four[0]}: {attribute_four[1]}")
-    attribute_five = character.pop(1)
-    print(f"{attribute_five[0]}: {attribute_five[1]}")
-    attribute_six = character.pop(1)
-    print(f"{attribute_six[0]}: {attribute_six[1]}")
+    print(f"{character[1][0]}: {character[1][1]}")
+    print(f"{character[2][0]}: {character[2][1]}")
+    print(f"{character[3][0]}: {character[3][1]}")
+    print(f"{character[4][0]}: {character[4][1]}")
+    print(f"{character[5][0]}: {character[5][1]}")
+    print(f"{character[6][0]}: {character[6][1]}")
