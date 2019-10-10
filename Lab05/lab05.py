@@ -5,6 +5,7 @@ import doctest
 def roll_die(number_of_rolls, number_of_sides):
     """
     Will return a random positive integer base on the parameters.
+
     :precondition: both parameters must be positive.
     :param number_of_rolls: an integer determining how many times to roll the die
     :param number_of_sides: an integer determining the upper bound of one roll
@@ -55,11 +56,12 @@ def choose_inventory(inventory, selection):
 
 def generate_name(syllables):
     """
-    Return
+    Generate a name base on a given amount of syllables.
+
     :precondition: the function will only work for positive non-zero integers
-    :postcondition:
+    :postcondition: return a string of letters alternating vowels and consonants
     :param syllables: an integer
-    :return:
+    :return: a concatenated string of random letters
     """
     string = ""
     for x in range(0, syllables):
@@ -101,7 +103,9 @@ def generate_syllable():
 
 def create_character(name_length):
     """
+    Create a list including items to associate to a character.
 
+    Each list element, except for the character name, will be a mini list containing an attribute along with a value.
     :param name_length: an integer
     :return:
     """
@@ -114,9 +118,11 @@ def create_character(name_length):
 
 def print_character(character):
     """
+    Format character's attributes in a neat and legible way.
 
-    :param character: a list
-    :return:
+    Pop each element one after the other, and print the attribute name along with value.
+    :param character: a list with all character attributes
+    :return: formatted string with all character attributes
     """
     print(f"Name: {character[0]}")
     attribute_one = character.pop(1)
@@ -135,8 +141,7 @@ def print_character(character):
 
 def main():
     """
-
-    :return:
+    Call all functions to run the program.
     """
     # inventory = ['Longsword', 'Dagger', 'Bow', 'Staff', 'Wand', 'Shield', 'Spear', 'Axe', 'Hammer']
     # print(choose_inventory(inventory,2))
@@ -144,7 +149,7 @@ def main():
     # doctest.testmod()
     # print(generate_name(4))
     # print(roll_die(3,6))
-    print(create_character(8))
+    # print(create_character(8))
     print_character(create_character(8))
 
 
