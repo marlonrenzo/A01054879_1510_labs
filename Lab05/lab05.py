@@ -1,5 +1,5 @@
 import random
-import doctest
+
 
 
 def roll_die(number_of_rolls, number_of_sides):
@@ -7,6 +7,7 @@ def roll_die(number_of_rolls, number_of_sides):
     Will return a random positive integer base on the parameters.
 
     :precondition: both parameters must be positive.
+    :post condition: will return a sum of x amount of rolls on a y-sided die
     :param number_of_rolls: an integer determining how many times to roll the die
     :param number_of_sides: an integer determining the upper bound of one roll
     :return: a random integer containing the sum of all rolls performed
@@ -26,7 +27,7 @@ def choose_inventory(inventory, selection):
 
     :precondition: selection must be a positive integer less than or equal to the length of inventory
     :precondition: inventory must not be an empty list
-    :postcondition: a sorted list with selected items, the length of the list depends on the value of selections
+    :post condition: a sorted list with selected items, the length of the list depends on the value of selections
     :param inventory: a list with items to select from
     :param selection: an integer for the number of selections from the list
     :return: a sorted list
@@ -59,7 +60,7 @@ def generate_name(syllables):
     Generate a name base on a given amount of syllables.
 
     :precondition: the function will only work for positive non-zero integers
-    :postcondition: return a string of letters alternating vowels and consonants
+    :post condition: return a string of letters alternating vowels and consonants
     :param syllables: an integer
     :return: a concatenated string of random letters
     """
@@ -106,6 +107,8 @@ def create_character(name_length):
     Create a list including items to associate to a character.
 
     Each list element, except for the character name, will be a mini list containing an attribute along with a value.
+    :precondition: parameter must be a positive integer
+    :post condition: will create a character as a list of attributes
     :param name_length: an integer
     :return:
     """
@@ -121,6 +124,8 @@ def print_character(character):
     Format character's attributes in a neat and legible way.
 
     Pop each element one after the other, and print the attribute name along with value.
+    :precondition: the character list must be properly formatted
+    :post condition: will print all the attributes in a legible way
     :param character: a list with all character attributes
     :return: formatted string with all character attributes
     """
@@ -137,21 +142,3 @@ def print_character(character):
     print(f"{attribute_five[0]}: {attribute_five[1]}")
     attribute_six = character.pop(1)
     print(f"{attribute_six[0]}: {attribute_six[1]}")
-
-
-def main():
-    """
-    Call all functions to run the program.
-    """
-    # inventory = ['Longsword', 'Dagger', 'Bow', 'Staff', 'Wand', 'Shield', 'Spear', 'Axe', 'Hammer']
-    # print(choose_inventory(inventory,2))
-    # print(generate_vowel())
-    # doctest.testmod()
-    # print(generate_name(4))
-    # print(roll_die(3,6))
-    # print(create_character(8))
-    print_character(create_character(8))
-
-
-if __name__ == '__main__':
-    main()
