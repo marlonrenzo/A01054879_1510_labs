@@ -12,10 +12,13 @@ def roll_die(number_of_rolls, number_of_sides):
     :return: a random integer containing the sum of all rolls performed
     """
     total = 0
-    for x in range(0, number_of_rolls):
-        roll = random.randint(1, number_of_sides)
-        total = total + roll
-    return total
+    if number_of_rolls <= 0 or number_of_sides <= 0:
+        return 0
+    else:
+        for x in range(0, number_of_rolls):
+            roll = random.randint(1, number_of_sides)
+            total = total + roll
+        return total
 
 
 def choose_inventory(inventory, selection):
@@ -121,7 +124,7 @@ def create_character(name_length):
 def print_character(character):
     """
     Format character's attributes in a neat and legible way.
-    
+
     :precondition: the character list must be properly formatted
     :post condition: will print all the attributes in a legible way
     :param character: a list with all character attributes
@@ -134,3 +137,5 @@ def print_character(character):
     print(f"{character[4][0]}: {character[4][1]}")
     print(f"{character[5][0]}: {character[5][1]}")
     print(f"{character[6][0]}: {character[6][1]}")
+
+
