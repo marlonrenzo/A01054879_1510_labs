@@ -1,6 +1,5 @@
 from unittest import TestCase
 from Lab05.lab05 import generate_consonant
-from unittest.mock import patch
 
 
 class TestGenerateConsonant(TestCase):
