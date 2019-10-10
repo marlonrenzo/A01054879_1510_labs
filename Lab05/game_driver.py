@@ -1,4 +1,3 @@
-import doctest
 from Lab05.lab05 import roll_die
 from Lab05.lab05 import choose_inventory
 from Lab05.lab05 import generate_name
@@ -24,9 +23,6 @@ def main():
 
     print("\n... Here is your character info below ...")
     print_character(create_character(8))
-
-    doctest.testmod()
-
 
 if __name__ == '__main__':
     main()
