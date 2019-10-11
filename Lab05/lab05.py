@@ -100,9 +100,8 @@ def generate_syllable():
     """
     vowel = generate_vowel()
     consonant = generate_consonant()
-    syllable = vowel + consonant
+    syllable = consonant + vowel
     return syllable
-
 
 
 def create_character(name_length):
@@ -116,7 +115,7 @@ def create_character(name_length):
     :return:
     """
     character = [generate_name(name_length // 2), ['Strength', roll_die(3, 6)],
-                 ['Dexterity', roll_die(3, 6)],['Constitution', roll_die(3, 6)],
+                 ['Dexterity', roll_die(3, 6)], ['Constitution', roll_die(3, 6)],
                  ['Intelligence', roll_die(3, 6)], ['Wisdom', roll_die(3, 6)],
                  ['Charisma', roll_die(3, 6)]]
     return character
@@ -147,13 +146,24 @@ def print_character(character):
     five: 17
     six: seven
     """
-    print(f"Name: {character[0]}")
-    print(f"{character[1][0]}: {character[1][1]}")
-    print(f"{character[2][0]}: {character[2][1]}")
-    print(f"{character[3][0]}: {character[3][1]}")
-    print(f"{character[4][0]}: {character[4][1]}")
-    print(f"{character[5][0]}: {character[5][1]}")
-    print(f"{character[6][0]}: {character[6][1]}")
+    if len(character) == 7:
+        print(f"Name: {character[0]}")
+        print(f"{character[1][0]}: {character[1][1]}")
+        print(f"{character[2][0]}: {character[2][1]}")
+        print(f"{character[3][0]}: {character[3][1]}")
+        print(f"{character[4][0]}: {character[4][1]}")
+        print(f"{character[5][0]}: {character[5][1]}")
+        print(f"{character[6][0]}: {character[6][1]}")
+    elif len(character) == 8:
+        print("Here are your inventory items:")
+        for length in range(0, len(character[7])):
+            item = 0
+            print(character[7][item])
+            item = item + 1
+    else:
+        print("Warning: Error found with your list of character attributes")
 
 
-doctest.testmod()
+if __name__ == '__main__':
+    # doctest.testmod()
+    print_character(['Hi', ['one', 1], ['two', 9], ['three', 1], ['four', 1], ['five', 3], ['six', 3], ["a", "b", "c"]])
