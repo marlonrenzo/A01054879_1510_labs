@@ -155,11 +155,17 @@ def print_character(character):
         print(f"{character[5][0]}: {character[5][1]}")
         print(f"{character[6][0]}: {character[6][1]}")
     elif len(character) == 8:
-        print("Here are your inventory items:")
+        print(f"Name: {character[0]}")
+        print(f"{character[1][0]}: {character[1][1]}")
+        print(f"{character[2][0]}: {character[2][1]}")
+        print(f"{character[3][0]}: {character[3][1]}")
+        print(f"{character[4][0]}: {character[4][1]}")
+        print(f"{character[5][0]}: {character[5][1]}")
+        print(f"{character[6][0]}: {character[6][1]}")
+        print("--Here are your inventory items--")
         for length in range(0, len(character[7])):
-            item = 0
-            print(character[7][item])
-            item = item + 1
+            print(character[7][length])
+
     else:
         print("Warning: Error found with your list of character attributes")
 
