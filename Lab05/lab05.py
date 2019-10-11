@@ -125,6 +125,9 @@ def print_character(character):
     """
     Format character's attributes in a neat and legible way.
 
+    Check the length of the list provided, and ensure it it formatted properly.
+
+    Include the inventory items associated with the character when the length of the list is 8.
     :precondition: the character list must be properly formatted
     :post condition: will print all the attributes in a legible way
     :param character: a list with all character attributes
@@ -173,3 +176,8 @@ def print_character(character):
 if __name__ == '__main__':
     # doctest.testmod()
     print_character(['Hi', ['one', 1], ['two', 9], ['three', 1], ['four', 1], ['five', 3], ['six', 3], ["a", "b", "c"]])
+
+
+# Pycharm kept opening the python console whenever I needed to run the program.
+# My configurations automatically run Doctests instead of running the main function.
+# I was able to finish all of my code, so feel free to mark everything as you would.
