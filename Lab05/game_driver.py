@@ -15,10 +15,11 @@ def main():
     print("I am now generating your name ---> Hello", generate_name(4))
     print("I am now creating a random character for you ---> ", create_character(8))
 
-    print("\n... Here is your character info below ...")
+    print("\n..... Here is your character info below .....")
     character = create_character(8)
-    character.append(choose_inventory(inventory, 2))
+    character.append(choose_inventory(inventory, 3))
     print_character(character)
+
 
 if __name__ == '__main__':
     main()
