@@ -174,8 +174,7 @@ def print_character(character):
 
 
 if __name__ == '__main__':
-    # doctest.testmod()
-    print_character(['Hi', ['one', 1], ['two', 9], ['three', 1], ['four', 1], ['five', 3], ['six', 3], ["a", "b", "c"]])
+    doctest.testmod()
 
 
 # Pycharm kept opening the python console whenever I needed to run the program.
