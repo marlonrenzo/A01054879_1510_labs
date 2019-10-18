@@ -1,5 +1,12 @@
 import doctest
-
+"""
+We cannot implement code to determine vector length because of the fact that zeroes
+are not shown in the sparse vectors. We could determine all the zeroes in between 
+known values (e.g. 2:5 and 6:3 would have three zeroes). However, we could have 
+leading zeroes or trailing zeroes, so first we must ask the team if any exist.
+If the highest key in a sparse vector is assumed to be the highest, only then could
+we determine length.
+"""
 
 def sparse_add(vector_one, vector_two):
     """
