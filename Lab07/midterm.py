@@ -63,7 +63,16 @@ def prepender(strings, added_string):
 
 
 def name_list():
-    pass
+    names = {}
+    while True:
+        user_input = input("Enter a name. ('quit' to finish)")
+        if user_input.lower() == 'quit':
+            break
+        elif len(user_input) not in names:
+            names[len(user_input)].append(user_input)
+        else:
+            names[len(user_input)] = [user_input]
+    return names
 
 
 def main():
