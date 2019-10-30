@@ -46,12 +46,16 @@ def cutoff(integers, number):
 def prepender(strings, added_string):
     """
 
-    :param strings:
-    :param added_string:
+    :param strings: a list
+    :param added_string: a string
     :precondition: strings must be a list of strings
     :precondition: added_string must be a string
     :post condition: will return a list with added_string added to each of the original list
-    :return:
+    :return: a list
+    >>> prepender(['hi', 'hey', 'hello'], 'YO')
+    ['YOhi', 'YOhey', 'YOhello']
+    >>> prepender(['smith', 'appleseed', 'thompson'], 'Mr. ')
+    ['Mr. smith', 'Mr. appleseed', 'Mr. thompson']
     """
     for index in range(len(strings)):
         strings[index] = added_string + strings[index]
@@ -60,8 +64,6 @@ def prepender(strings, added_string):
 
 def main():
     doctest.testmod()
-    # print(list_tagger([1, 234, 56, 7]))
-    print(cutoff([1, 3, 6, 9], 3))
 
 
 if __name__ == "__main__":
