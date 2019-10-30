@@ -62,6 +62,10 @@ def prepender(strings, added_string):
     return strings
 
 
+def name_list():
+    pass
+
+
 def main():
     doctest.testmod()
 
