@@ -45,12 +45,12 @@ def cutoff(integers, number):
 
 def prepender(strings, added_string):
     """
-
+    Append a string to the beginning of all strings in a list.
     :param strings: a list
     :param added_string: a string
     :precondition: strings must be a list of strings
     :precondition: added_string must be a string
-    :post condition: will return a list with added_string added to each of the original list
+    :post condition: will return a list with added_string appended to the beginning of each string
     :return: a list
     >>> prepender(['hi', 'hey', 'hello'], 'YO')
     ['YOhi', 'YOhey', 'YOhello']
@@ -63,6 +63,10 @@ def prepender(strings, added_string):
 
 
 def name_list():
+    """
+    Create a dictionary of names provided by a user, corresponding each string to their length.
+    :return: a dictionary
+    """
     names = {}
     while True:
         user_input = input("Enter a name. ('quit' to finish)")
