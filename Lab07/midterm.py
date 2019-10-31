@@ -46,6 +46,7 @@ def cutoff(integers, number):
 def prepender(strings, added_string):
     """
     Append a string to the beginning of all strings in a list.
+
     :param strings: a list
     :param added_string: a string
     :precondition: strings must be a list of strings
@@ -65,6 +66,7 @@ def prepender(strings, added_string):
 def name_list():
     """
     Create a dictionary of names provided by a user, corresponding each string to their length.
+
     :return: a dictionary
     """
     names = {}
@@ -82,6 +84,7 @@ def name_list():
 def multiples_of_3(upper_bound):
     """
     Add the sum of all multiples of three under the upper_bound.
+
     :param upper_bound: an int
     :precondition: parameter must be a positive integer
     :post condition: will return the sum of all multiples of three under the upper_bound
@@ -96,6 +99,11 @@ def multiples_of_3(upper_bound):
 
 
 def roll_counter():
+    """
+    Roll a user-specified sided die a user-specified amount of times and count the times a number is rolled.
+
+    :return: a dictionary
+    """
     number_of_sides = int(input("Enter the size of the die you would like to roll. \n"))
     number_of_rolls = int(input("Enter the amount of times you would like to roll. \n"))
     roll_tally = {i + 1 : 0 for i in range(number_of_sides)}
@@ -105,9 +113,16 @@ def roll_counter():
     return roll_tally
 
 
-def print_roll_tallies(tally):
-    for key in tally.keys():
-        print(f"{key} rolled {tally[key]} times")
+def print_dictionary(dictionary):
+    """
+    Print the keys and their values of a dictionary into a legible way.
+
+    :param dictionary: a dictionary
+    :precondition: parameter must be a dictionary
+    :post condition: will print all keys and their values
+    """
+    for key in dictionary.keys():
+        print(f"{key} : {dictionary[key]}")
 
 
 def main():
