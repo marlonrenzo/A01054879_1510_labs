@@ -38,22 +38,22 @@ class TestCutoff(TestCase):
         expected_value = 2
         self.assertEqual(actual_value, expected_value)
 
-    def test_cutoff_empty_list_and_zero(self):
-        actual_value = cutoff([], 0)
+    def test_cutoff_list_5_integers_and_same_integer(self):
+        actual_value = cutoff([2, 2, 2, 2, 2], 2)
+        expected_value = 5
+        self.assertEqual(actual_value, expected_value)
+
+    def test_cutoff_list_5_integers_and_larger_integer(self):
+        actual_value = cutoff([2, 2, 2, 2, 2], 0)
         expected_value = 0
         self.assertEqual(actual_value, expected_value)
 
-    def test_cutoff_empty_list_and_zero(self):
-        actual_value = cutoff([], 0)
-        expected_value = 0
+    def test_cutoff_5_multiples_and_increment(self):
+        actual_value = cutoff([3, 6, 9, 12, 15], 3)
+        expected_value = 5
         self.assertEqual(actual_value, expected_value)
 
-    def test_cutoff_empty_list_and_zero(self):
-        actual_value = cutoff([], 0)
-        expected_value = 0
-        self.assertEqual(actual_value, expected_value)
-
-    def test_cutoff_empty_list_and_zero(self):
-        actual_value = cutoff([], 0)
-        expected_value = 0
+    def test_cutoff_5_negative_multiples_and_increment(self):
+        actual_value = cutoff([-3, -6, -9, -12], 3)
+        expected_value = 5
         self.assertEqual(actual_value, expected_value)
