@@ -95,8 +95,20 @@ def multiples_of_3(upper_bound):
     return multiple_sum
 
 
+def roll_counter():
+    number_of_sides = int(input("Enter the size of the die you would like to roll. \n"))
+    number_of_rolls = int(input("Enter the amount of times you would like to roll. \n"))
+    roll_tally = {i + 1 : 0 for i in range(number_of_sides)}
+    while number_of_rolls > 0:
+        number_of_rolls -= 1
+        roll_tally[random.randint(1, number_of_sides)] += 1
+    for key in roll_tally.keys():
+        print(f"{key} rolled {roll_tally[key]} times")
+
+
 def main():
     doctest.testmod()
+    roll_counter()
 
 
 if __name__ == "__main__":
