@@ -13,10 +13,10 @@ class TestCutoff(TestCase):
         expected_value = 0
         self.assertEqual(actual_value, expected_value)
 
-    # def test_cutoff_list_with_zero_and_zero(self):
-    #     actual_value = cutoff([0], 0)
-    #     expected_value = 0
-    #     self.assertEqual(actual_value, expected_value)
+    def test_cutoff_list_with_zero_and_zero(self):
+        actual_value = cutoff([0], 0)
+        expected_value = 0
+        self.assertEqual(actual_value, expected_value)
 
     def test_cutoff_list_with_2_and_2(self):
         actual_value = cutoff([2], 2)
@@ -28,10 +28,10 @@ class TestCutoff(TestCase):
         expected_value = 0
         self.assertEqual(actual_value, expected_value)
 
-    # def test_cutoff_list_with_5_integers_and_0(self):
-    #     actual_value = cutoff([1, 2, 3, 4, 5], 0)
-    #     expected_value = 0
-    #     self.assertEqual(actual_value, expected_value)
+    def test_cutoff_list_with_5_integers_and_0(self):
+        actual_value = cutoff([1, 2, 3, 4, 5], 0)
+        expected_value = 0
+        self.assertEqual(actual_value, expected_value)
 
     def test_cutoff_list_with_5_integers_and_2(self):
         actual_value = cutoff([1, 2, 3, 4, 5], 2)
@@ -55,5 +55,5 @@ class TestCutoff(TestCase):
 
     def test_cutoff_5_negative_multiples_and_increment(self):
         actual_value = cutoff([-3, -6, -9, -12], 3)
-        expected_value = 5
+        expected_value = 4
         self.assertEqual(actual_value, expected_value)
