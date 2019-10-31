@@ -38,7 +38,7 @@ def cutoff(integers, number):
     """
     multiples = 0
     for i in integers:
-        if i % number == 0:
+        if i != 0 and number != 0 and i % number == 0:
             multiples += 1
     return multiples
 
