@@ -79,6 +79,22 @@ def name_list():
     return names
 
 
+def multiples_of_3(upper_bound):
+    """
+    Add the sum of all multiples of three under the upper_bound.
+    :param upper_bound: an int
+    :precondition: parameter must be a positive integer
+    :post condition: will return the sum of all multiples of three under the upper_bound
+    :return: an int
+    >>> multiples_of_3(10)
+    18
+    """
+    multiple_sum = 0
+    for multiple in range(3, upper_bound, 3):
+        multiple_sum += multiple
+    return multiple_sum
+
+
 def main():
     doctest.testmod()
 
