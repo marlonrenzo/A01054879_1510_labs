@@ -102,13 +102,17 @@ def roll_counter():
     while number_of_rolls > 0:
         number_of_rolls -= 1
         roll_tally[random.randint(1, number_of_sides)] += 1
-    for key in roll_tally.keys():
-        print(f"{key} rolled {roll_tally[key]} times")
+    return roll_tally
+
+
+def print_roll_tallies(tally):
+    for key in tally.keys():
+        print(f"{key} rolled {tally[key]} times")
 
 
 def main():
     doctest.testmod()
-    roll_counter()
+    print_roll_tallies(roll_counter())
 
 
 if __name__ == "__main__":
