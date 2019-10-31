@@ -127,7 +127,12 @@ def print_dictionary(dictionary):
 
 def main():
     doctest.testmod()
-    print_roll_tallies(roll_counter())
+    print(list_tagger([1, 2, 3, 4, 5]))
+    print(cutoff([1, 4, 6, 8, 14], 2))
+    print(name_list())
+    print(multiples_of_3(10))
+    print(prepender(['smith', 'appleseed', 'thompson'], 'Mr. '))
+    print_dictionary(roll_counter())
 
 
 if __name__ == "__main__":
