@@ -37,10 +37,13 @@ def cutoff(integers, number):
     4
     """
     multiples = 0
-    for i in integers:
-        if i != 0 and number != 0 and i % number == 0:
-            multiples += 1
-    return multiples
+    if number == 0:
+        return 0
+    else:
+        for i in integers:
+            if i % number == 0:
+                multiples += 1
+        return multiples
 
 
 def prepender(strings, added_string):
@@ -130,9 +133,10 @@ def main():
     print(list_tagger([1, 2, 3, 4, 5]))
     print(cutoff([1, 4, 6, 8, 14], 2))
     print(name_list())
-    print(multiples_of_3(10))
+    print(multiples_of_3(25))
     print(prepender(['smith', 'appleseed', 'thompson'], 'Mr. '))
     print_dictionary(roll_counter())
+
 
 
 if __name__ == "__main__":
