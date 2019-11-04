@@ -1,6 +1,7 @@
 def starting_position():
     """
     Return the starting position.
+
     :return: a dictionary
     """
     coord = {"x": 0, "y": 0}
@@ -10,6 +11,7 @@ def starting_position():
 def check_position(position: dict, x_position: int, y_position: int):
     """
     Check if position provided is located at the same position as the provided x and y coordinates.
+
     :param position: a dictionary
     :param x_position: an int
     :param y_position: an int
@@ -25,6 +27,13 @@ def check_position(position: dict, x_position: int, y_position: int):
 
 
 def show_position(position: dict):
+    """
+    Show the current position of the character.
+
+    :param position: a dictionary
+    :precondition: position must be a dictionary with x and y coordinates
+    :post condition: will print the 5x5 grid and show where the character is located at.
+    """
     place_holder = ["[ ]", "[x]"]
     for y_axis in range(5):
         # create the 5 rows
@@ -37,11 +46,26 @@ def show_position(position: dict):
 
 
 def get_move():
+    """
+    Ask the user for the direction of a move.
+
+    :return: an int
+    """
     move = int(input("Where do you want to move?\n1: up\n2: down\n3: left\n4: right\n"))
     return move
 
 
 def validate_move(coordinates: dict, direction: int):
+    """
+    Validate that the move will be within the 5x5 limits.
+
+    :param coordinates: a dictionary
+    :param direction: an int
+    :precondition: coordinates must be a dictionary with x and y coordinates
+    :precondition: direction must be an integer between 1 - 4 inclusive
+    :post condition: will return the validity of the move as a boolean
+    :return: a boolean
+    """
     if (coordinates["x"] == 4 and direction == 4) or (coordinates["x"] == 0 and direction == 3):
         return False
     elif (coordinates["y"] == 4 and direction == 2) or (coordinates["y"] == 0 and direction == 1):
