@@ -1,9 +1,23 @@
 def starting_position():
+    """
+    Return the starting position.
+    :return: a dictionary
+    """
     coord = {"x": 0, "y": 0}
     return coord
 
 
 def check_position(position: dict, x_position: int, y_position: int):
+    """
+    Check if position provided is located at the same position as the provided x and y coordinates.
+    :param position: a dictionary
+    :param x_position: an int
+    :param y_position: an int
+    :precondition: position must be a dictionary with x and y
+    :precondition: x_position and y_position must be integers
+    :post condition: will return the equality of the two coordinates as a boolean
+    :return: a boolean
+    """
     if position["x"] == x_position and position["y"] == y_position:
         return True
     else:
