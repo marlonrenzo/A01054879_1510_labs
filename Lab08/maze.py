@@ -5,9 +5,9 @@ def starting_position():
 
 def check_position(position: dict, x_position: int, y_position: int):
     if position["x"] == x_position and position["y"] == y_position:
-        return 1
+        return True
     else:
-        return 0
+        return False
 
 
 def show_position(position: dict):
@@ -23,16 +23,14 @@ def show_position(position: dict):
 
 
 def get_move():
-    move = int(input("Where do you want to move?\n1: up\n2: down\n3: left\n4: right\n5: exit\n"))
+    move = int(input("Where do you want to move?\n1: up\n2: down\n3: left\n4: right\n"))
     return move
 
 
 def validate_move(coordinates: dict, direction: int):
     if (coordinates["x"] == 4 and direction == 4) or (coordinates["x"] == 0 and direction == 3):
-        print("Cannot go any further, there is a wall there. Try moving in another direction")
         return False
     elif (coordinates["y"] == 4 and direction == 2) or (coordinates["y"] == 0 and direction == 1):
-        print("Cannot go any further, there is a wall there. Try moving in another direction")
         return False
     else:
         return True
@@ -47,6 +45,14 @@ def move_character(coordinates: dict, direction: int):
     return coordinates
 
 
+def check_reached_goal(position, at_goal):
+    if at_goal:
+        show_position(position)
+        print("Congratulations! You are a master of this maze!")
+    else:
+        print("Keep going! I believe in you!")
+
+
 def game():
     goal = {"x": 4, "y": 4}
     character = starting_position()
@@ -58,17 +64,9 @@ def game():
         if valid_move:
             character = move_character(character, direction)
             reached_goal = check_position(character, goal["x"], goal["y"])
-            if reached_goal:
-                print("Congratulations! You are a master of this maze!")
-                break
+            check_reached_goal(character, reached_goal)
         else:
-            continue
-
-
-
-
-
-
+            print("Cannot go any further, there is a wall there. Try moving in another direction")
 
 
 if __name__ == "__main__":
