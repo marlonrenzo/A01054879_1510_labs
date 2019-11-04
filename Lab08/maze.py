@@ -1,4 +1,4 @@
-def starting_position():
+def starting_position() -> dict:
     """
     Return the starting position.
 
@@ -8,7 +8,7 @@ def starting_position():
     return coord
 
 
-def check_position(position: dict, x_position: int, y_position: int):
+def check_position(position: dict, x_position: int, y_position: int) -> bool:
     """
     Check if position provided is located at the same position as the provided x and y coordinates.
 
@@ -33,6 +33,7 @@ def show_position(position: dict):
     :param position: a dictionary
     :precondition: position must be a dictionary with x and y coordinates
     :post condition: will print the 5x5 grid and show where the character is located at.
+    :return: Nothing
     """
     place_holder = ["[ ]", "[x]"]
     for y_axis in range(5):
@@ -45,17 +46,17 @@ def show_position(position: dict):
     print("\n")
 
 
-def get_move():
+def get_move() -> int:
     """
     Ask the user for the direction of a move.
 
     :return: an int
     """
-    move = int(input("Where do you want to move?\n1: up\n2: down\n3: left\n4: right\n"))
+    move = int(input("Where do you want to move?\n1: up\n2: down\n3: left\n4: right\n5: quit\n"))
     return move
 
 
-def validate_move(coordinates: dict, direction: int):
+def validate_move(coordinates: dict, direction: int) -> bool:
     """
     Validate that the move will be within the 5x5 limits.
 
@@ -74,7 +75,16 @@ def validate_move(coordinates: dict, direction: int):
         return True
 
 
-def move_character(coordinates: dict, direction: int):
+def move_character(coordinates: dict, direction: int) -> dict:
+    """
+    Update coordinates based on the direction.
+    :param coordinates: a dictionary
+    :param direction: an int
+    :precondition: coordinates must be a dictionary with x and y coordinates
+    :precondition: direction must be an integer between 1 - 4 inclusive
+    :post condition: will return updated coordinates after the move
+    :return: a dictionary
+    """
     move = {1: -1, 2: 1, 3: -1, 4: 1}
     if direction == 1 or direction == 2:
         coordinates["y"] += move[direction]
@@ -83,7 +93,13 @@ def move_character(coordinates: dict, direction: int):
     return coordinates
 
 
-def check_reached_goal(position, at_goal):
+def check_reached_goal(position: dict, at_goal: bool):
+    """
+    Check if character has reached the goal.
+    :param position: a dictionary
+    :param at_goal: an int
+    :return: Nothing
+    """
     if at_goal:
         show_position(position)
         print("Congratulations! You are a master of this maze!")
@@ -92,19 +108,26 @@ def check_reached_goal(position, at_goal):
 
 
 def game():
+    """
+    Run the game.
+    """
     goal = {"x": 4, "y": 4}
     character = starting_position()
     reached_goal = False
     while not reached_goal:
         show_position(character)
         direction = get_move()
-        valid_move = validate_move(character, direction)
-        if valid_move:
-            character = move_character(character, direction)
-            reached_goal = check_position(character, goal["x"], goal["y"])
-            check_reached_goal(character, reached_goal)
+        if direction == 5:
+            print("Thanks for playing!")
+            break
         else:
-            print("Cannot go any further, there is a wall there. Try moving in another direction")
+            valid_move = validate_move(character, direction)
+            if valid_move:
+                character = move_character(character, direction)
+                reached_goal = check_position(character, goal["x"], goal["y"])
+                check_reached_goal(character, reached_goal)
+            else:
+                print("Cannot go any further, there is a wall there. Try moving in another direction")
 
 
 if __name__ == "__main__":
