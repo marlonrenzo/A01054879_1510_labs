@@ -1,8 +1,13 @@
+import doctest
+
+
 def starting_position() -> dict:
     """
     Return the starting position.
 
     :return: a dictionary
+    >>> starting_position()
+    {'x': 0, 'y': 0}
     """
     coord = {"x": 0, "y": 0}
     return coord
@@ -19,6 +24,14 @@ def check_position(position: dict, x_position: int, y_position: int) -> bool:
     :precondition: x_position and y_position must be integers
     :post condition: will return the equality of the two coordinates as a boolean
     :return: a boolean
+    >>> check_position({"x": 0, "y": 0}, 4, 4)
+    False
+    >>> check_position({"x": 4, "y": 1}, 4, 2)
+    False
+    >>> check_position({"x": 0, "y": 0}, 0, 0)
+    True
+    >>> check_position({"x": 3, "y": 2}, 3, 2)
+    True
     """
     if position["x"] == x_position and position["y"] == y_position:
         return True
@@ -66,6 +79,14 @@ def validate_move(coordinates: dict, direction: int) -> bool:
     :precondition: direction must be an integer between 1 - 4 inclusive
     :post condition: will return the validity of the move as a boolean
     :return: a boolean
+    >>> validate_move({"x": 0, "y": 2}, 4)
+    True
+    >>> validate_move({"x": 0, "y": 4}, 2)
+    False
+    >>> validate_move({"x": 4, "y": 2}, 4)
+    False
+    >>> validate_move({"x": 3, "y": 2}, 4)
+    True
     """
     if (coordinates["x"] == 4 and direction == 4) or (coordinates["x"] == 0 and direction == 3):
         return False
@@ -84,6 +105,14 @@ def move_character(coordinates: dict, direction: int) -> dict:
     :precondition: direction must be an integer between 1 - 4 inclusive
     :post condition: will return updated coordinates after the move
     :return: a dictionary
+    >>> move_character({"x": 0, "y": 0}, 4)
+    {'x': 1, 'y': 0}
+    >>> move_character({"x": 3, "y": 3}, 1)
+    {'x': 3, 'y': 2}
+    >>> move_character({"x": 1, "y": 1}, 3)
+    {'x': 0, 'y': 1}
+    >>> move_character({"x": 0, "y": 1}, 1)
+    {'x': 0, 'y': 0}
     """
     move = {1: -1, 2: 1, 3: -1, 4: 1}
     if direction == 1 or direction == 2:
@@ -99,6 +128,8 @@ def check_reached_goal(position: dict, at_goal: bool):
     :param position: a dictionary
     :param at_goal: an int
     :return: Nothing
+    >>> check_reached_goal({"x": 0, "y": 0}, 0)
+    Keep going! I believe in you!
     """
     if at_goal:
         show_position(position)
@@ -131,4 +162,5 @@ def game():
 
 
 if __name__ == "__main__":
+    doctest.testmod()
     game()
