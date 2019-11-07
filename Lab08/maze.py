@@ -65,7 +65,7 @@ def get_move() -> int:
 
     :return: an int
     """
-    move = int(input("Where do you want to move?\n1: up\n2: down\n3: left\n4: right\n5: quit\n"))
+    move = int(input("Where do you want to move?\n1: up\n2: down\n3: left\n4: right\n"))
     return move
 
 
@@ -128,14 +128,10 @@ def check_reached_goal(position: dict, at_goal: bool):
     :param position: a dictionary
     :param at_goal: an int
     :return: Nothing
-    >>> check_reached_goal({"x": 0, "y": 0}, 0)
-    Keep going! I believe in you!
     """
     if at_goal:
         show_position(position)
         print("Congratulations! You are a master of this maze!")
-    else:
-        print("Keep going! I believe in you!")
 
 
 def game():
@@ -148,17 +144,13 @@ def game():
     while not reached_goal:
         show_position(character)
         direction = get_move()
-        if direction == 5:
-            print("Thanks for playing!")
-            break
+        valid_move = validate_move(character, direction)
+        if valid_move:
+            character = move_character(character, direction)
+            reached_goal = check_position(character, goal["x"], goal["y"])
+            check_reached_goal(character, reached_goal)
         else:
-            valid_move = validate_move(character, direction)
-            if valid_move:
-                character = move_character(character, direction)
-                reached_goal = check_position(character, goal["x"], goal["y"])
-                check_reached_goal(character, reached_goal)
-            else:
-                print("Cannot go any further, there is a wall there. Try moving in another direction")
+            print("Cannot go any further, there is a wall there. Try moving in another direction")
 
 
 if __name__ == "__main__":
