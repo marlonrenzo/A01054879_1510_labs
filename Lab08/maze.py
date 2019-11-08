@@ -150,7 +150,7 @@ def game():
             reached_goal = check_position(character, goal["x"], goal["y"])
             check_reached_goal(character, reached_goal)
         else:
-            print("Cannot go any further, there is a wall there. Try moving in another direction")
+            print("Not a valid move, you have reached a wall or you inputted something wrong.")
 
 
 if __name__ == "__main__":
