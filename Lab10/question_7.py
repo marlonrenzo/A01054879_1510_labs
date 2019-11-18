@@ -35,6 +35,9 @@ def get_food_items() -> dict:
 
     :return: a dict
 
+    >>> test = get_food_items()
+    >>> print(test)
+    {'lettuce': 5, 'carrot': 52, 'apple': 72, 'bread': 66, 'pasta': 221, 'rice': 225, 'milk': 122, 'cheese': 115, 'yogurt': 145, 'beef': 240, 'chicken': 140, 'butter': 102}
     """
     return {"lettuce": 5, "carrot": 52, "apple": 72, "bread": 66, "pasta": 221, "rice": 225, "milk": 122, "cheese": 115,
             "yogurt": 145, "beef": 240, "chicken": 140, "butter": 102}
