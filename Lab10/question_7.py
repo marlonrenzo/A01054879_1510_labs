@@ -69,7 +69,7 @@ def calorie_calculator() -> None:  # Input loop
 def main():
     """
     Call functions to run program.
-    
+
     :return: None
 
     """
