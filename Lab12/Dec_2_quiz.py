@@ -1,13 +1,19 @@
 class Student:
-    def __init__(self, first, middle, last, student_number):
+
+    __students = "A00000000"
+    __number = "0"
+
+    def __init__(self, first, middle, last):
         self.first = first
         self.middle = middle
         self.last = last
-        self.student_number = student_number
         self.courses = {}
+        self.student_number = Student.__students
+        Student.__number = str(int(Student.__number) + 1)
+        Student.__students = "A" + ("0" * (8 - len(Student.__number))) + Student.__number
 
     def get_information(self):
-        return [f"{self.first} {self.last}", self.student_number, self.get_gpa()]  # return a list of information
+        return f"{self.first} {self.middle} {self.last}, {self.student_number}, {len(self.courses.keys())} courses, GPA: {self.get_gpa()}"
 
     def get_gpa(self):
         number_of_courses = 0  # total number of courses taken
@@ -25,17 +31,22 @@ class Student:
 
 
 def main():
-    cst_student_one = Student("Nicole", "Page", "Brooks", "A00123456")
+    cst_student_one = Student("Nicole", "Page", "Brooks")
     cst_student_one.add_course("Comp 1510", 95)
     cst_student_one.add_course("Comp 1113", 87)
     cst_student_one.add_course("Comp 1536", 94)
-    print(f"{cst_student_one.first}'s GPA is {cst_student_one.get_gpa()}")
 
-    cst_student_two = Student("Cornelius", "", "Smith", "A00987654")
+    print(f"{cst_student_one.first}'s GPA is {cst_student_one.get_gpa()}")
+    cst_student_one.change_last_name("Wang")
+    print(cst_student_one.get_information())
+
+    cst_student_two = Student("Cornelius", "", "Smith")
     cst_student_two.add_course("Comp 1116", 45)
     cst_student_two.add_course("Comp 1930", 65)
     cst_student_two.add_course("Comp 1712", 75)
+
     print(f"{cst_student_two.first}'s GPA is {cst_student_two.get_gpa()}")
+    print(cst_student_two.get_information())
 
 
 if __name__ == '__main__':
