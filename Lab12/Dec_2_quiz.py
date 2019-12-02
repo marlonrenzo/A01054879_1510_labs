@@ -1,3 +1,5 @@
+# James R. and Marlon F. || Lab 12
+
 class Student:
 
     __students = "A00000000"
@@ -9,8 +11,8 @@ class Student:
         self.last = last
         self.courses = {}
         self.student_number = Student.__students
-        Student.__number = str(int(Student.__number) + 1)
-        Student.__students = "A" + ("0" * (8 - len(Student.__number))) + Student.__number
+        Student.__number = str(int(Student.__number) + 1)  # Move on to next student number
+        Student.__students = "A" + ("0" * (8 - len(Student.__number))) + Student.__number  # assign new student number
 
     def get_information(self):
         return f"{self.first} {self.middle} {self.last}, {self.student_number}, {len(self.courses.keys())} courses, GPA: {self.get_gpa()}"
